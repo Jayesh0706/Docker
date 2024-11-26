@@ -3,7 +3,8 @@
 1) docker build -t custom_mysql_image .
 2) docker build -t custom_wp_img .
 3) docker run --name mysql_container custom_mysql_image(when you dont give any extra parameters and use paramenters as in dcokerfile)
-- For custom parameters 
+- For custom parameters
+  
 docker run -d \
   --name mysql-container \
   -v mysql_data:/var/lib/mysql \
@@ -13,8 +14,10 @@ docker run -d \
   -e MYSQL_PASSWORD=wp_password \
   -p 3306:3306 \
   mysql:5.7
+  
 4) docker run -d --name mywp --link mysql_container:custom_mysql_image -p 80:80 custom_wp(when you dont give any extra parameters and use paramenters as in dcokerfile)
-- For custom parameters 
+- For custom parameters
+   
 docker run -d \
   --name wordpress-container \
   --link mysql-container:mysql \
