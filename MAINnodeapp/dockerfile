@@ -1,0 +1,19 @@
+FROM node:18
+#official version (use versions for stablity of img even if shared)
+
+WORKDIR /app
+
+COPY package*.json .
+#copies dependency files first which don't get changed often > to use chaching technique of docker build
+
+RUN npm install
+#install dependencies written in package*.json
+
+COPY . .
+#copies all remaining code (not includepackage*.json cause already copied--> uses caching)
+
+EXPOSE 3000
+
+ENTRYPOINT ["node"]
+
+CMD ["app.js"]
