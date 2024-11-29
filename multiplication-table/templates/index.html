@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+</head>
+<body>
+    <h1>Multiplication Table Generator</h1>
+    <form method="POST">
+        <label for="number">Enter a number:</label>
+        <input type="text" id="number" name="number" required>
+        <button type="submit">Generate Table</button>
+    </form>
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+    {% if table %}
+        <h2>Multiplication Table for {{ number }}</h2>
+        <ul>
+            {% for key, value in table.items() %}
+                <li>{{ number }} x {{ key }} = {{ value }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
