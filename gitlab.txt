@@ -1,0 +1,2 @@
+1) Docker-compose with GitLab
+2) Dockerfile with GitLab
